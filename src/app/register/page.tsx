@@ -18,7 +18,8 @@ import {
   ArrowRight, ArrowLeft, Eye, EyeOff, Check, Info, CheckCircle,
   SkipForward, Store, Pill, Wrench, Warehouse, ShoppingCart,
   UtensilsCrossed, Wine, Package, Shirt, Bike, Printer,
-  FileText, FileOutput, Ban, Phone, Globe,
+  FileText, FileOutput, Ban, Phone, Globe, User, Mail, Lock,
+  Building2, MapPin, Briefcase, DollarSign, Tag, Scan, CreditCard,
 } from "lucide-react"
 
 type CountryCode = "VE" | "CO" | "MX" | "EC" | "AR" | "PE" | "CL" | "BO" | "UY"
@@ -317,7 +318,7 @@ function RegisterPage() {
           <img src="/logo/dark.png" alt="TiendaPOS" className="h-12 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] hidden dark:block" />
           <span className="text-white font-black text-2xl sm:text-3xl mt-1 -ml-1 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">TiendaPOS</span>
         </Link>
-        <div className="flex items-center justify-center min-h-screen px-4 py-8">
+        <div className="flex items-center justify-center min-h-screen px-4 pt-20 sm:pt-0">
           <div className="w-full max-w-2xl mx-auto">
             <Card className="px-8 py-8 sm:px-12 sm:py-10 border-none gap-8 rounded-xl overflow-visible shadow-2xl ring-0 backdrop-blur-sm bg-white/95 dark:bg-zinc-900/95">
           <CardHeader className="p-0">
@@ -337,7 +338,7 @@ function RegisterPage() {
                       key={step.number}
                       type="button"
                       onClick={() => goToStep(step.number)}
-                      className="flex flex-col items-center gap-1 transition-all duration-300 group"
+                      className="flex flex-col items-center gap-1.5 transition-all duration-300 group"
                     >
                       <div
                         className={`flex items-center justify-center size-7 rounded-full transition-all duration-300 ${
@@ -447,14 +448,14 @@ function Step1({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5">
         <div className="sm:col-span-2">
           <Label htmlFor="nombre" className="mb-1.5 block">Nombre completo</Label>
-          <Input id="nombre" placeholder="Juan Pérez" value={formData.nombre}
+          <Input id="nombre" icon={User} placeholder="Juan Pérez" value={formData.nombre}
             onChange={(e) => updateField("nombre", e.target.value)}
             className={errors.nombre ? "border-destructive" : ""} />
           {errors.nombre && <p className="text-xs text-destructive mt-1">{errors.nombre}</p>}
         </div>
         <div className="sm:col-span-2">
           <Label htmlFor="email" className="mb-1.5">Correo electrónico</Label>
-          <Input id="email" type="email" placeholder="juan@ejemplo.com"
+          <Input id="email" icon={Mail} type="email" placeholder="juan@ejemplo.com"
             value={formData.email} onChange={(e) => updateField("email", e.target.value)}
             className={errors.email ? "border-destructive" : ""} />
           {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
@@ -462,7 +463,7 @@ function Step1({
         <div>
           <Label htmlFor="password" className="mb-1.5">Contraseña</Label>
           <div className="relative">
-            <Input id="password" type={showPassword ? "text" : "password"} placeholder="Mínimo 8 caracteres"
+            <Input id="password" icon={Lock} type={showPassword ? "text" : "password"} placeholder="Mínimo 8 caracteres"
               value={formData.password} onChange={(e) => updateField("password", e.target.value)}
               className={errors.password ? "border-destructive pr-10" : "pr-10"} />
             <button type="button" onClick={() => setShowPassword(!showPassword)}
@@ -475,7 +476,7 @@ function Step1({
         <div>
           <Label htmlFor="confirmPassword" className="mb-1.5">Confirmar contraseña</Label>
           <div className="relative">
-            <Input id="confirmPassword" type={showConfirmPassword ? "text" : "password"}
+            <Input id="confirmPassword" icon={Lock} type={showConfirmPassword ? "text" : "password"}
               placeholder="Repite tu contraseña" value={formData.confirmPassword}
               onChange={(e) => updateField("confirmPassword", e.target.value)}
               className={errors.confirmPassword ? "border-destructive pr-10" : "pr-10"} />
@@ -520,7 +521,7 @@ function Step2({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5">
         <div>
           <Label htmlFor="identificacionFiscal" className="mb-1.5">{getTaxIdLabel()}</Label>
-          <Input id="identificacionFiscal" placeholder={getTaxIdLabel() === "RIF" ? "J-12345678-9" : "123456789"}
+          <Input id="identificacionFiscal" icon={CreditCard} placeholder={getTaxIdLabel() === "RIF" ? "J-12345678-9" : "123456789"}
             value={formData.identificacionFiscal}
             onChange={(e) => updateField("identificacionFiscal", e.target.value)}
             className={errors.identificacionFiscal ? "border-destructive" : ""} />
@@ -528,14 +529,14 @@ function Step2({
         </div>
         <div>
           <Label htmlFor="razonSocial" className="mb-1.5">Razón Social</Label>
-          <Input id="razonSocial" placeholder="Mi Tienda C.A." value={formData.razonSocial}
+          <Input id="razonSocial" icon={Building2} placeholder="Mi Tienda C.A." value={formData.razonSocial}
             onChange={(e) => updateField("razonSocial", e.target.value)}
             className={errors.razonSocial ? "border-destructive" : ""} />
           {errors.razonSocial && <p className="text-xs text-destructive mt-1">{errors.razonSocial}</p>}
         </div>
         <div>
           <Label htmlFor="nombreComercial" className="mb-1.5">Nombre Comercial</Label>
-          <Input id="nombreComercial" placeholder="Mi Tienda" value={formData.nombreComercial}
+          <Input id="nombreComercial" icon={Store} placeholder="Mi Tienda" value={formData.nombreComercial}
             onChange={(e) => updateField("nombreComercial", e.target.value)} />
         </div>
         <div>
@@ -565,18 +566,18 @@ function Step2({
         </div>
         <div>
           <Label htmlFor="emailNegocio" className="mb-1.5">Email del negocio</Label>
-          <Input id="emailNegocio" type="email" placeholder="tienda@ejemplo.com"
+          <Input id="emailNegocio" icon={Mail} type="email" placeholder="tienda@ejemplo.com"
             value={formData.emailNegocio} onChange={(e) => updateField("emailNegocio", e.target.value)} />
         </div>
         <div>
           <Label htmlFor="actividadEconomica" className="mb-1.5">Actividad Económica</Label>
-          <Input id="actividadEconomica" placeholder="Comercio al por menor"
+          <Input id="actividadEconomica" icon={Briefcase} placeholder="Comercio al por menor"
             value={formData.actividadEconomica}
             onChange={(e) => updateField("actividadEconomica", e.target.value)} />
         </div>
         <div>
           <Label htmlFor="codigoPostal" className="mb-1.5">Código Postal</Label>
-          <Input id="codigoPostal" placeholder="1010" value={formData.codigoPostal}
+          <Input id="codigoPostal" icon={MapPin} placeholder="1010" value={formData.codigoPostal}
             onChange={(e) => updateField("codigoPostal", e.target.value)} />
         </div>
       </div>
@@ -617,12 +618,12 @@ function Step3({
         </div>
         <div>
           <Label htmlFor="nombreAlmacen" className="mb-1.5">Nombre del almacén</Label>
-          <Input id="nombreAlmacen" placeholder="Depósito Principal" value={formData.nombreAlmacen}
+          <Input id="nombreAlmacen" icon={Warehouse} placeholder="Depósito Principal" value={formData.nombreAlmacen}
             onChange={(e) => updateField("nombreAlmacen", e.target.value)} />
         </div>
         <div>
           <Label htmlFor="nombreCaja" className="mb-1.5">Nombre de la caja</Label>
-          <Input id="nombreCaja" placeholder="Caja 1" value={formData.nombreCaja}
+          <Input id="nombreCaja" icon={ShoppingCart} placeholder="Caja 1" value={formData.nombreCaja}
             onChange={(e) => updateField("nombreCaja", e.target.value)} />
         </div>
         <div className="sm:col-span-2">
@@ -666,7 +667,7 @@ function Step4({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5">
         <div className="sm:col-span-2">
           <Label htmlFor="nombreProducto" className="mb-1.5">Nombre del producto</Label>
-          <Input id="nombreProducto" placeholder="Ej: Harina PAN 1kg"
+          <Input id="nombreProducto" icon={Package} placeholder="Ej: Harina PAN 1kg"
             value={formData.nombreProducto}
             onChange={(e) => updateField("nombreProducto", e.target.value)}
             className={errors.nombreProducto ? "border-destructive" : ""} />
@@ -674,17 +675,17 @@ function Step4({
         </div>
         <div>
           <Label htmlFor="sku" className="mb-1.5">SKU</Label>
-          <Input id="sku" placeholder="SKU-001" value={formData.sku}
+          <Input id="sku" icon={Tag} placeholder="SKU-001" value={formData.sku}
             onChange={(e) => updateField("sku", e.target.value)} />
         </div>
         <div>
           <Label htmlFor="codigoBarras" className="mb-1.5">Código de barras</Label>
-          <Input id="codigoBarras" placeholder="1234567890123" value={formData.codigoBarras}
+          <Input id="codigoBarras" icon={Scan} placeholder="1234567890123" value={formData.codigoBarras}
             onChange={(e) => updateField("codigoBarras", e.target.value)} />
         </div>
         <div>
           <Label htmlFor="costo" className="mb-1.5">Costo</Label>
-          <Input id="costo" type="number" placeholder="0.00" value={formData.costo}
+          <Input id="costo" icon={DollarSign} type="number" placeholder="0.00" value={formData.costo}
             onChange={(e) => updateField("costo", e.target.value)} />
         </div>
         <div className="flex items-end pb-2">
@@ -696,7 +697,7 @@ function Step4({
         </div>
         <div>
           <Label htmlFor="stockInicial" className="mb-1.5">Stock inicial</Label>
-          <Input id="stockInicial" type="number" placeholder="0" value={formData.stockInicial}
+          <Input id="stockInicial" icon={Package} type="number" placeholder="0" value={formData.stockInicial}
             onChange={(e) => updateField("stockInicial", e.target.value)} />
         </div>
         <div className="sm:col-span-2">
