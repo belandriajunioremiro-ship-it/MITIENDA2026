@@ -311,16 +311,17 @@ function RegisterPage() {
       <div className="absolute inset-0 z-[1] pointer-events-none">
         <img src="/grid-01.svg" alt="" className="absolute inset-0 w-full h-full object-cover" />
       </div>
-      <div className="relative z-10">
-        <ThemeToggle />
-        <Link href="#" className="fixed top-4 left-4 z-50 flex items-center gap-0">
-          <img src="/logo/light.png" alt="TiendaPOS" className="h-12 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] dark:hidden" />
-          <img src="/logo/dark.png" alt="TiendaPOS" className="h-12 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] hidden dark:block" />
-          <span className="text-white font-black text-2xl sm:text-3xl mt-1 -ml-1 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">TiendaPOS</span>
-        </Link>
-        <div className="flex items-center justify-center min-h-screen px-4 pt-20 sm:pt-0">
-          <div className="w-full max-w-2xl mx-auto">
-            <Card className="px-8 py-8 sm:px-12 sm:py-10 border-none gap-8 rounded-xl overflow-visible shadow-2xl ring-0 bg-white dark:bg-zinc-900">
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 pt-20 sm:pt-0">
+        <div className="w-full max-w-2xl mx-auto">
+          <Card className="px-8 py-8 sm:px-12 sm:py-10 border-none gap-8 rounded-xl overflow-visible shadow-2xl ring-0 bg-white dark:bg-zinc-900">
+            <div className="flex items-center justify-between">
+              <Link href="#" className="flex items-center gap-2">
+                <img src="/logo/light.png" alt="TiendaPOS" className="h-8 sm:h-10 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] dark:hidden" />
+                <img src="/logo/dark.png" alt="TiendaPOS" className="h-8 sm:h-10 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] hidden dark:block" />
+                <span className="text-foreground font-black text-lg sm:text-xl">TiendaPOS</span>
+              </Link>
+              <ThemeToggle />
+            </div>
           <CardHeader className="p-0">
             <div className="w-full mb-8">
               <div className="relative h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
@@ -424,8 +425,6 @@ function RegisterPage() {
             Inicia sesión
           </Link>
         </p>
-      </div>
-    </div>
       </div>
     </section>
   )
