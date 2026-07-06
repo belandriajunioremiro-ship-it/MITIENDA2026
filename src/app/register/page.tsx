@@ -329,7 +329,7 @@ function RegisterPage() {
                   style={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
                 />
               </div>
-              <div className="flex justify-between mt-3">
+              <div className="flex justify-between mt-5">
                 {steps.map((step) => {
                   const isActive = step.number === currentStep
                   const isCompleted = step.number < currentStep
@@ -338,10 +338,10 @@ function RegisterPage() {
                       key={step.number}
                       type="button"
                       onClick={() => goToStep(step.number)}
-                      className="flex flex-col items-center gap-2 transition-all duration-300 group"
+                      className="flex flex-col items-center gap-2.5 transition-all duration-300 group"
                     >
                       <div
-                        className={`flex items-center justify-center size-7 rounded-full transition-all duration-300 ${
+                        className={`flex items-center justify-center size-9 rounded-full transition-all duration-300 ${
                           isCompleted
                             ? "bg-primary text-primary-foreground"
                             : isActive
@@ -352,11 +352,11 @@ function RegisterPage() {
                         {isCompleted ? (
                           <Check className="size-4" />
                         ) : (
-                          <span className="text-xs font-bold">{step.number}</span>
+                          <span className="text-sm font-bold">{step.number}</span>
                         )}
                       </div>
                       <span
-                        className={`text-[10px] font-medium leading-tight transition-all duration-300 ${
+                        className={`text-xs font-medium leading-tight transition-all duration-300 ${
                           isActive
                             ? "text-primary opacity-100"
                             : isCompleted
