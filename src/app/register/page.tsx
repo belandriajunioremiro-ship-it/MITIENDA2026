@@ -322,7 +322,7 @@ function RegisterPage() {
           <div className="w-full max-w-2xl mx-auto">
             <Card className="px-8 py-8 sm:px-12 sm:py-10 border-none gap-8 rounded-xl overflow-visible shadow-2xl ring-0 bg-white dark:bg-zinc-900">
           <CardHeader className="p-0">
-            <div className="w-full mb-8">
+            <div className="w-full mb-4">
               <div className="relative h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
                 <div
                   className="absolute inset-y-0 left-0 bg-primary rounded-full transition-all duration-500 ease-out"
@@ -493,7 +493,7 @@ function Step1({
             <SelectTrigger icon={Globe} className={`w-full ${errors.pais ? "border-destructive" : ""}`}>
               <span className="flex flex-1 text-left items-center gap-2">
                 {formData.pais
-                  ? (() => { const c = countries.find(ct => ct.code === formData.pais); return c ? `${c.flag} ${c.name}` : formData.pais })()
+                  ? (() => { const c = countries.find(ct => ct.code === formData.pais); return c ? c.name : formData.pais })()
                   : <span className="text-muted-foreground">Selecciona tu país</span>
                 }
               </span>
@@ -501,7 +501,7 @@ function Step1({
             <SelectContent>
               {countries.map((c) => (
                 <SelectItem key={c.code} value={c.code}>
-                  <span className="flex items-center gap-2">{c.flag} {c.name}</span>
+                  <span className="flex items-center gap-2">{c.name}</span>
                 </SelectItem>
               ))}
             </SelectContent>
