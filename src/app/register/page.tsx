@@ -288,7 +288,7 @@ function RegisterPage() {
           </Link>
           <div className="flex items-center justify-center min-h-screen px-4">
             <div className="w-full max-w-2xl mx-auto">
-              <Card className="px-8 py-12 sm:px-12 border-none gap-6 rounded-xl overflow-visible shadow-2xl ring-0 backdrop-blur-sm bg-white/95 dark:bg-zinc-900/95">
+              <Card className="px-8 py-12 sm:px-12 border-none gap-6 rounded-xl overflow-visible shadow-2xl ring-0 bg-white dark:bg-zinc-900">
                 <div className="flex flex-col items-center text-center gap-4 animate-in fade-in zoom-in-95 duration-300">
                   <CheckCircle className="size-16 text-green-500" />
                   <h2 className="text-2xl font-extrabold">¡Tu cuenta ha sido creada!</h2>
@@ -320,9 +320,9 @@ function RegisterPage() {
         </Link>
         <div className="flex items-center justify-center min-h-screen px-4 pt-20 sm:pt-0">
           <div className="w-full max-w-2xl mx-auto">
-            <Card className="px-8 py-8 sm:px-12 sm:py-10 border-none gap-8 rounded-xl overflow-visible shadow-2xl ring-0 backdrop-blur-sm bg-white/95 dark:bg-zinc-900/95">
+            <Card className="px-8 py-8 sm:px-12 sm:py-10 border-none gap-8 rounded-xl overflow-visible shadow-2xl ring-0 bg-white dark:bg-zinc-900">
           <CardHeader className="p-0">
-            <div className="w-full mb-6">
+            <div className="w-full mb-8">
               <div className="relative h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
                 <div
                   className="absolute inset-y-0 left-0 bg-primary rounded-full transition-all duration-500 ease-out"
@@ -338,7 +338,7 @@ function RegisterPage() {
                       key={step.number}
                       type="button"
                       onClick={() => goToStep(step.number)}
-                      className="flex flex-col items-center gap-1.5 transition-all duration-300 group"
+                      className="flex flex-col items-center gap-2 transition-all duration-300 group"
                     >
                       <div
                         className={`flex items-center justify-center size-7 rounded-full transition-all duration-300 ${
