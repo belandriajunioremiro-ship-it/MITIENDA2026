@@ -274,7 +274,7 @@ function RegisterPage() {
 
   if (isCompleted) {
     return (
-    <section className="bg-[url('https://images.shadcnspace.com/assets/backgrounds/login-5.webp')] bg-cover bg-center bg-no-repeat h-full min-h-screen relative overflow-y-auto overflow-x-hidden">
+      <section className="bg-[url('https://images.shadcnspace.com/assets/backgrounds/login-5.webp')] bg-cover bg-center bg-no-repeat h-full min-h-screen relative overflow-hidden">
         <div className="absolute inset-0 z-0 backdrop-grayscale-[0.6] backdrop-blur-sm bg-gradient-to-b from-black/40 to-black/10" />
         <div className="absolute inset-0 z-[1] pointer-events-none">
           <img src="/grid-01.svg" alt="" className="absolute inset-0 w-full h-full object-cover" />
@@ -306,25 +306,23 @@ function RegisterPage() {
   }
 
   return (
-    <section className="h-dvh relative overflow-y-auto">
-      <div className="fixed inset-0 z-0 bg-[url('https://images.shadcnspace.com/assets/backgrounds/login-5.webp')] bg-cover bg-center bg-no-repeat" />
-      <div className="fixed inset-0 z-0 backdrop-grayscale-[0.6] backdrop-blur-sm bg-gradient-to-b from-black/40 to-black/10" />
-      <div className="fixed inset-0 z-[1] pointer-events-none">
+    <section className="bg-[url('https://images.shadcnspace.com/assets/backgrounds/login-5.webp')] bg-cover bg-center bg-no-repeat h-full min-h-screen relative overflow-hidden">
+      <div className="absolute inset-0 z-0 backdrop-grayscale-[0.6] backdrop-blur-sm bg-gradient-to-b from-black/40 to-black/10" />
+      <div className="absolute inset-0 z-[1] pointer-events-none">
         <img src="/grid-01.svg" alt="" className="absolute inset-0 w-full h-full object-cover" />
       </div>
-      <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 sm:absolute sm:py-0 sm:px-6">
-        <Link href="#" className="flex items-center gap-0">
-          <img src="/logo/light.png" alt="TiendaPOS" className="h-10 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] dark:hidden" />
-          <img src="/logo/dark.png" alt="TiendaPOS" className="h-10 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] hidden dark:block" />
-          <span className="text-white font-black text-xl sm:text-3xl mt-1 -ml-1 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">TiendaPOS</span>
-        </Link>
+      <div className="relative z-10">
         <ThemeToggle />
-      </header>
-      <main className="relative z-10 flex items-center justify-center min-h-[calc(100dvh-60px)] px-4 py-6 sm:min-h-screen sm:pt-0">
-        <div className="w-full max-w-2xl mx-auto">
-          <Card className="px-8 py-8 sm:px-12 sm:py-10 border-none gap-8 rounded-xl overflow-visible shadow-2xl ring-0 bg-white dark:bg-zinc-900">
+        <Link href="#" className="fixed top-4 left-4 z-50 flex items-center gap-0">
+          <img src="/logo/light.png" alt="TiendaPOS" className="h-12 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] dark:hidden" />
+          <img src="/logo/dark.png" alt="TiendaPOS" className="h-12 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] hidden dark:block" />
+          <span className="text-white font-black text-2xl sm:text-3xl mt-1 -ml-1 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">TiendaPOS</span>
+        </Link>
+        <div className="flex items-center justify-center min-h-screen px-4 pt-20 sm:pt-0">
+          <div className="w-full max-w-2xl mx-auto">
+            <Card className="px-8 py-8 sm:px-12 sm:py-10 border-none gap-8 rounded-xl overflow-visible shadow-2xl ring-0 bg-white dark:bg-zinc-900">
           <CardHeader className="p-0">
-            <div className="w-full mb-4">
+            <div className="w-full mb-8">
               <div className="relative h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
                 <div
                   className="absolute inset-y-0 left-0 bg-primary rounded-full transition-all duration-500 ease-out"
@@ -422,12 +420,13 @@ function RegisterPage() {
         </Card>
         <p className="text-center text-base text-white/80 mt-6 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">
           ¿Ya tienes una cuenta?{" "}
-          <Link href="/" className="text-white font-bold hover:underline [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">
+          <Link href="/login" className="text-white font-bold hover:underline [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">
             Inicia sesión
           </Link>
         </p>
       </div>
-    </main>
+    </div>
+      </div>
     </section>
   )
 }
@@ -494,7 +493,7 @@ function Step1({
             <SelectTrigger icon={Globe} className={`w-full ${errors.pais ? "border-destructive" : ""}`}>
               <span className="flex flex-1 text-left items-center gap-2">
                 {formData.pais
-                  ? (() => { const c = countries.find(ct => ct.code === formData.pais); return c ? c.name : formData.pais })()
+                  ? (() => { const c = countries.find(ct => ct.code === formData.pais); return c ? `${c.flag} ${c.name}` : formData.pais })()
                   : <span className="text-muted-foreground">Selecciona tu país</span>
                 }
               </span>
@@ -502,7 +501,7 @@ function Step1({
             <SelectContent>
               {countries.map((c) => (
                 <SelectItem key={c.code} value={c.code}>
-                  <span className="flex items-center gap-2">{c.name}</span>
+                  <span className="flex items-center gap-2">{c.flag} {c.name}</span>
                 </SelectItem>
               ))}
             </SelectContent>

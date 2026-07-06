@@ -11,21 +11,19 @@ import { Mail, Lock, LogIn } from "lucide-react"
 
 export default function LoginPage() {
   return (
-    <section className="h-dvh relative overflow-y-auto">
-      <div className="fixed inset-0 z-0 bg-[url('https://images.shadcnspace.com/assets/backgrounds/login-5.webp')] bg-cover bg-center bg-no-repeat" />
-      <div className="fixed inset-0 z-0 backdrop-grayscale-[0.6] backdrop-blur-sm bg-gradient-to-b from-black/40 to-black/10" />
-      <div className="fixed inset-0 z-[1] pointer-events-none">
+    <section className="bg-[url('https://images.shadcnspace.com/assets/backgrounds/login-5.webp')] bg-cover bg-center bg-no-repeat h-full min-h-screen relative overflow-hidden">
+      <div className="absolute inset-0 z-0 backdrop-grayscale-[0.6] backdrop-blur-sm bg-gradient-to-b from-black/40 to-black/10" />
+      <div className="absolute inset-0 z-[1] pointer-events-none">
         <img src="/grid-01.svg" alt="" className="absolute inset-0 w-full h-full object-cover" />
       </div>
-      <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 sm:absolute sm:py-0 sm:px-6">
-        <Link href="#" className="flex items-center gap-0">
-          <img src="/logo/light.png" alt="TiendaPOS" className="h-10 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] dark:hidden" />
-          <img src="/logo/dark.png" alt="TiendaPOS" className="h-10 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] hidden dark:block" />
-          <span className="text-white font-black text-xl sm:text-3xl mt-1 -ml-1 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">TiendaPOS</span>
-        </Link>
-        <ThemeToggle />
-      </header>
-      <main className="relative z-10 flex items-center justify-center min-h-[calc(100dvh-60px)] px-4 py-6 sm:min-h-screen sm:pt-0">
+      <div className="relative z-10">
+      <ThemeToggle />
+      <Link href="#" className="fixed top-4 left-4 z-50 flex items-center gap-0">
+        <img src="/logo/light.png" alt="TiendaPOS" className="h-12 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] dark:hidden" />
+        <img src="/logo/dark.png" alt="TiendaPOS" className="h-12 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] hidden dark:block" />
+        <span className="text-white font-black text-2xl sm:text-3xl mt-1 -ml-1 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">TiendaPOS</span>
+      </Link>
+      <div className="flex items-center justify-center min-h-screen px-4">
         <div className="w-full max-w-xl mx-auto">
           <Card size="default" className="px-6 py-8 sm:px-10 sm:py-12 border-none gap-6 sm:gap-8 rounded-xl overflow-visible shadow-2xl ring-0 backdrop-blur-sm bg-white/95 dark:bg-zinc-900/95">
             <CardHeader className="p-0 flex gap-4 flex-col">
@@ -62,7 +60,8 @@ export default function LoginPage() {
             </CardContent>
           </Card>
         </div>
-      </main>
+      </div>
+      </div>
     </section>
   )
 }
