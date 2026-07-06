@@ -426,6 +426,7 @@ function RegisterPage() {
           </Link>
         </p>
       </div>
+      </div>
     </section>
   )
 }
