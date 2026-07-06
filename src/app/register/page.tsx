@@ -418,7 +418,7 @@ function RegisterPage() {
             </div>
           </CardFooter>
         </Card>
-        <p className="text-center text-sm text-white/80 mt-6 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">
+        <p className="text-center text-base text-white/80 mt-6 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">
           ¿Ya tienes una cuenta?{" "}
           <Link href="/login" className="text-white font-bold hover:underline [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">
             Inicia sesión
@@ -491,12 +491,12 @@ function Step1({
           <Label htmlFor="pais" className="mb-1.5">País</Label>
           <Select value={formData.pais} onValueChange={(v) => v && updateField("pais", v)}>
             <SelectTrigger icon={Globe} className={`w-full ${errors.pais ? "border-destructive" : ""}`}>
-              <SelectValue placeholder="Selecciona tu país">
-                {formData.pais ? (() => {
-                  const c = countries.find(country => country.code === formData.pais)
-                  return c ? `${c.flag} ${c.name}` : formData.pais
-                })() : null}
-              </SelectValue>
+              <span className="flex flex-1 text-left items-center gap-2">
+                {formData.pais
+                  ? (() => { const c = countries.find(ct => ct.code === formData.pais); return c ? `${c.flag} ${c.name}` : formData.pais })()
+                  : <span className="text-muted-foreground">Selecciona tu país</span>
+                }
+              </span>
             </SelectTrigger>
             <SelectContent>
               {countries.map((c) => (
