@@ -16,16 +16,15 @@ export default function LoginPage() {
       <div className="absolute inset-0 z-[1] pointer-events-none">
         <img src="/grid-01.svg" alt="" className="absolute inset-0 w-full h-full object-cover" />
       </div>
-      <div className="relative z-10 min-h-screen flex flex-col">
-        <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 sm:fixed sm:top-4 sm:left-0 sm:right-0 sm:py-0 sm:px-4">
-          <Link href="#" className="flex items-center gap-0">
-            <img src="/logo/light.png" alt="TiendaPOS" className="h-10 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] dark:hidden" />
-            <img src="/logo/dark.png" alt="TiendaPOS" className="h-10 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] hidden dark:block" />
-            <span className="text-white font-black text-xl sm:text-3xl mt-1 -ml-1 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">TiendaPOS</span>
-          </Link>
-          <ThemeToggle />
-        </header>
-        <div className="flex-1 flex items-center justify-center px-4 py-8 sm:pt-0 sm:pb-0">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 sm:py-0 sm:px-6">
+        <Link href="#" className="flex items-center gap-0">
+          <img src="/logo/light.png" alt="TiendaPOS" className="h-10 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] dark:hidden" />
+          <img src="/logo/dark.png" alt="TiendaPOS" className="h-10 sm:h-16 drop-shadow-[0_4px_20px_rgb(0_0_0_/_0.7)] drop-shadow-[0_0_40px_rgb(0_0_0_/_0.3)] hidden dark:block" />
+          <span className="text-white font-black text-xl sm:text-3xl mt-1 -ml-1 [text-shadow:0_4px_20px_rgb(0_0_0_/_0.7),0_0_40px_rgb(0_0_0_/_0.3)]">TiendaPOS</span>
+        </Link>
+        <ThemeToggle />
+      </header>
+      <main className="relative z-10 pt-16 sm:pt-0 min-h-screen flex items-center justify-center px-4">
         <div className="w-full max-w-xl mx-auto">
           <Card size="default" className="px-6 py-8 sm:px-10 sm:py-12 border-none gap-6 sm:gap-8 rounded-xl overflow-visible shadow-2xl ring-0 backdrop-blur-sm bg-white/95 dark:bg-zinc-900/95">
             <CardHeader className="p-0 flex gap-4 flex-col">
@@ -62,8 +61,7 @@ export default function LoginPage() {
             </CardContent>
           </Card>
         </div>
-      </div>
-      </div>
+      </main>
     </section>
   )
 }
